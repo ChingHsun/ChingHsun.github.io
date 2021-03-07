@@ -28,27 +28,28 @@ nav {
       height: auto;
     }
   }
-  .nav_hammbtn {
+  .nav_hambtn {
     display: block;
     border: none;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0);
     .nav_hammenuimg {
-      width: 30px;
+      width: 50px;
       height: auto;
     }
   }
   .nav_items {
     /*隱藏選單開始*/
-    max-height: 0px;
+    max-height: 0;
+    width: 50%;
+
     overflow: hidden;
     /*隱藏選單結束*/
     /*絕對定位疊在網頁上*/
     position: absolute;
     z-index: 100;
     top: 60px;
-    left: 0;
-    width: 100%;
+    right: 0;
     background: $brown;
     align-items: center;
     li {
@@ -67,8 +68,8 @@ nav {
 }
 /*jQ點擊後動態在 body 加上 class */
 .menu-show .nav_items {
-  max-height: 500px;
-  transition: max-height 2.5s;
+  height: 100vh;
+  max-height: 100vh;
 }
 .header_img {
   height: 260px;
@@ -79,11 +80,12 @@ nav {
     line-height: 180px;
     font-size: 30px;
     font-weight: bold;
+    cursor: pointer;
   }
 }
 
 section {
-  padding: 50px 0;
+  padding: 50px 0 0px;
 }
 h3 {
   color: $brown;
@@ -121,6 +123,10 @@ h3 {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
 @media (min-width: 500px) {
   .container {
     .content {
@@ -139,16 +145,18 @@ h3 {
 }
 @media (min-width: 801px) {
   nav {
-    .nav_hammbtn {
+    .nav_hambtn {
       display: none;
       .nav_hammenuimg {
         display: none;
       }
     }
-    .nav_items {
+    .menu-show .nav_items {
       display: flex;
       align-items: center;
+      height: 60px;
       max-height: 300px;
+      width: 100%;
       position: relative;
       top: 0;
       li {
